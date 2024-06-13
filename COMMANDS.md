@@ -22,3 +22,5 @@
 
 # Create Superuser
     python3 manage.py createsuperuser
+
+# Install All-Auth
