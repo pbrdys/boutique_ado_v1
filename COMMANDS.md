@@ -24,3 +24,4 @@
     python3 manage.py createsuperuser
 
 # Install All-Auth
+    pip3 install django-allauth
