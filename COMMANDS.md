@@ -25,3 +25,16 @@
 
 # Install All-Auth
     pip3 install django-allauth
+
+# Copy AllAuth Templates
+    1. create templates folder in root-level of your project
+    2. pip3 show django-allauth
+    3. Copy the allauth template files to the projects templates directory using this terminal command where <Location> is the file path you copied in the previous step.
+    4. cp -r <Location>/allauth/templates/* ./templates/
+
+# Add base template
+    create base.html in /templates
+
+# Create App
+    python3 manage.py startapp app_name
+    then create /templates folder within the app
