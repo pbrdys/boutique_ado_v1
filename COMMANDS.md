@@ -38,3 +38,9 @@
 # Create App
     python3 manage.py startapp app_name
     then create /templates folder within the app
+
+# Installing Fixtures
+    1. create folder fixtures within your app
+    2. create your json files within the fixtures folder
+    3. execute: python3 manage.py loaddata name_of_json_file_without_extension
+    -> now data is within the database
