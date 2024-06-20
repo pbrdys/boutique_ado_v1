@@ -18,6 +18,8 @@ def all_products(request):
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
+            # to perserve the original field 'name' we wanted to sort on
+            # but the actual field we will sort on is 'lower_name' which we store in the sortkey variable
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
@@ -29,12 +31,14 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-            
+        
+        # category is a parameter added to the href in the template
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+        # q is the name of the input field of the form in the template
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
