@@ -44,3 +44,8 @@
     2. create your json files within the fixtures folder
     3. execute: python3 manage.py loaddata name_of_json_file_without_extension
     -> now data is within the database
+
+# Do operations on the fly
+python3 manage.py shell
+[ ... write your code here ... ]
+exit()
