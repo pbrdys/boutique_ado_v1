@@ -135,3 +135,14 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- those fields will be rendered in the html as <script tags with their id's -->
+    <!-- We need those fields in order to access them in stripe_elements.js -->
+    <!-- Because otherwise we coudln't access those template variables in the js-file. -->
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <!-- finally add the stripe_elements.js -->
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
