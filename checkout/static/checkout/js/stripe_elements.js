@@ -72,7 +72,7 @@ form.addEventListener('submit', function(ev) {
     }).then(function(result) {
         if(result.error) {
             // Show error to your customer (e.g. insufficient funds)
-            console.log(result.error.message);
+            var errorDiv = document.getElementById('card-errors');
             var html = `
                 <span class="icon" role="alert">
                     <i class="fas fa-times"></i>
